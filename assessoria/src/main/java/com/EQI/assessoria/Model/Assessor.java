@@ -25,8 +25,6 @@ public class Assessor {
 	@Size(min=2,max=200)
 	private String nome;
 	
-	
-	
 	@OneToMany(mappedBy = "assessor", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("assessor")
 	private List<Cliente> cliente;

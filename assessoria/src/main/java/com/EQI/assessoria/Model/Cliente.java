@@ -1,10 +1,14 @@
 package com.EQI.assessoria.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -30,6 +34,10 @@ public class Cliente {
 	@ManyToOne
 	@JsonIgnoreProperties("cliente")
 	private Assessor assessor;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("cliente")
+	private List<Proposta> proposta;
 	
 
 	public Long getId() {
@@ -72,6 +80,16 @@ public class Cliente {
 	public void setAssessor(Assessor assessor) {
 		this.assessor = assessor;
 	}
+
+	public List<Proposta> getProposta() {
+		return proposta;
+	}
+
+	public void setProposta(List<Proposta> proposta) {
+		this.proposta = proposta;
+	}
+	
+	
 	
 	
 	

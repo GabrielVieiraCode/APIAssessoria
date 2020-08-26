@@ -12,23 +12,31 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="tb_Proposta")
 public class Proposta {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private float valor;
 	
-	private boolean pagamento;
+	private String pagamento;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("proposta")
 	private FundosDisponiveis fundo;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("proposta")
+	private Cliente cliente;
+	
+	
+	
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -40,11 +48,11 @@ public class Proposta {
 		this.valor = valor;
 	}
 
-	public boolean isPagamento() {
+	public String isPagamento() {
 		return pagamento;
 	}
 
-	public void setPagamento(boolean pagamento) {
+	public void setPagamento(String pagamento) {
 		this.pagamento = pagamento;
 	}
 
@@ -55,6 +63,15 @@ public class Proposta {
 	public void setFundo(FundosDisponiveis fundo) {
 		this.fundo = fundo;
 	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
 	
 	
 	
