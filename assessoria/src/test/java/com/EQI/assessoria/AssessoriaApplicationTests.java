@@ -1,10 +1,10 @@
-package com.EQI.api;
+package com.EQI.assessoria;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiApplicationTests {
+class AssessoriaApplicationTests {
 
 	@Test
 	void contextLoads() {
