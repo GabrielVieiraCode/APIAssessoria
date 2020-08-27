@@ -21,14 +21,16 @@ public class FundosDisponiveisController {
 	@Autowired
 	private FundosDisponiveisRepository repository;
 	
+	//Metodo que tras todos os fundos
 	@GetMapping
-	public ResponseEntity<List<FundosDisponiveis>> GetAll(){
+	public ResponseEntity<List<FundosDisponiveis>> listarTodos(){
 		return ResponseEntity.ok(repository.findAll());
 		
 	}
 	
+	// Meotodo para popular a tabela FundosDisponiveis
 	@PostMapping
-	public ResponseEntity<FundosDisponiveis> post (@RequestBody FundosDisponiveis fundos){
+	public ResponseEntity<FundosDisponiveis> CriarFundo (@RequestBody FundosDisponiveis fundos){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(fundos));
 	}
 }

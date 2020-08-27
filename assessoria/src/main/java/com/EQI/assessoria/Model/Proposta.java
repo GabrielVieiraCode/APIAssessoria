@@ -1,11 +1,15 @@
 package com.EQI.assessoria.Model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -19,7 +23,7 @@ public class Proposta {
 	
 	private float valor;
 	
-	private String pagamento;
+	private boolean pagamento;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("proposta")
@@ -28,6 +32,9 @@ public class Proposta {
 	@ManyToOne
 	@JsonIgnoreProperties("proposta")
 	private Cliente cliente;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date data = new java.sql.Date(System.currentTimeMillis());
 	
 	
 	
@@ -48,11 +55,11 @@ public class Proposta {
 		this.valor = valor;
 	}
 
-	public String isPagamento() {
+	public boolean isPagamento() {
 		return pagamento;
 	}
 
-	public void setPagamento(String pagamento) {
+	public void setPagamento(boolean pagamento) {
 		this.pagamento = pagamento;
 	}
 
@@ -70,6 +77,14 @@ public class Proposta {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
 	}
 	
 	

@@ -23,14 +23,16 @@ public class AssessorController {
 	@Autowired
 	private AssessorRepository repository;
 	
+	//Metodo para trazer todos os acessores 
 	@GetMapping
-	public ResponseEntity<List<Assessor>> GetAll(){
+	public ResponseEntity<List<Assessor>> listarTodos(){
 		return ResponseEntity.ok(repository.findAll());
-		
 	}
-
+	
+	//Metodo para popular a tabela assessor
 	@PostMapping
-	public ResponseEntity<Assessor> post (@RequestBody Assessor assessor){
+	public ResponseEntity<Assessor> criaAassessor (@RequestBody Assessor assessor){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(assessor));
 	}
+	
 }

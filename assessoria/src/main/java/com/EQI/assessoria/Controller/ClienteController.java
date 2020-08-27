@@ -22,14 +22,15 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteRepository repository;
+	//Metodo que tras todos os Clientes 
 	@GetMapping
-	public ResponseEntity<List<Cliente>> GetAll(){
+	public ResponseEntity<List<Cliente>> listarTodos(){
 		return ResponseEntity.ok(repository.findAll());
 		
 	}
-
+	//Metodo que popula a tabela cliente
 	@PostMapping
-	public ResponseEntity<Cliente> post (@RequestBody Cliente cliente){
+	public ResponseEntity<Cliente> criarCliente (@RequestBody Cliente cliente){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(cliente));
 	}
 	

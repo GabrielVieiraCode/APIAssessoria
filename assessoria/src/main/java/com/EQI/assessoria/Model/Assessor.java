@@ -22,6 +22,7 @@ public class Assessor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
 	@Size(min=2,max=200)
 	private String nome;
 	
