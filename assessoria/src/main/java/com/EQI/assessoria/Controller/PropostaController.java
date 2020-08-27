@@ -36,7 +36,7 @@ public class PropostaController {
 	
 	//Metodo que puxa Proposta pelo id
 	@GetMapping("/{id}")
-	public ResponseEntity<Proposta> pegaPropostaId(@PathVariable long id){
+	public ResponseEntity<Proposta> buscaPorId(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
